@@ -94,6 +94,7 @@ function showresult(){
         displaytext.innerHTML = result;
     }else if(operator === "/"){
         let result = oprandone / oprandtwo;
+        result = result.toFixed(2)
         displaytext.innerHTML = result;
     }
 }
