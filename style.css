@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
+
+body{
+    margin:0;
+    font-family: 'League Spartan', sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #e0e0e0;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.display{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(61, 61, 61);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    height: 70px;
+    font-size: 32px;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    border-radius: 16px;
+    margin-bottom: 1rem;
+    background: #cacaca;
+    box-shadow: inset 5px 5px 45px #b4b4b4,
+                inset -5px -5px 45px #e0e0e0;
+}
+.display h1,p{
+    margin: 0;
+}
+
+.display p{
+    font-size: 20px;
+    color: #707070;
+}
+.buttons{
+    display: grid;
+
+    grid-template-areas: "seven eight nine del"
+                         "four five six addbtn"
+                         "one two three subtractbtn"
+                         "decimal zero dividebtn multiplybtn"
+                         "reset reset equals equals";
+    gap: 1rem;
+    grid-template-columns: repeat(4,minmax(auto,60px));
+    justify-items: center;
+    background-color: black;
+    padding: 1rem;
+    border-radius: 16px;
+    background: linear-gradient(145deg, #f0f0f0, #cacaca);
+    box-shadow:  5px 5px 10px #d5d5d5,
+                 -5px -5px 10px #ebebeb;
+
+}
+
+button{
+    font-family: 'League Spartan', sans-serif;
+    border-radius: 16px;
+    background: linear-gradient(145deg, #cacaca, #f0f0f0);
+    box-shadow:  5px 5px 10px #d5d5d5,
+                 -5px -5px 10px #ebebeb;
+    
+    border: none;
+    width: 100%;
+    font-size: 25px;
+    padding: 1rem;
+}
+button:hover{
+    background: linear-gradient(145deg, #ff9f9f, #e58686);
+    color: white;
+    box-shadow:  5px 5px 0px #d37c7c;
+}
+
+.one{
+    grid-area:one;
+}
+.two{
+    grid-area:two;
+}
+.three{
+    grid-area:three;
+}
+.four{
+    grid-area:four ;
+}
+.five{
+    grid-area:five ;
+}
+.six{
+    grid-area:six ;
+}
+.seven{
+    grid-area:seven ;
+}
+.eight{
+    grid-area:eight ;
+}
+.nine{
+    grid-area:nine ;
+}
+.addbtn{
+    grid-area:addbtn;
+}
+.subtractbtn{
+    grid-area:subtractbtn ;
+}
+.multiplybtn{
+    grid-area:multiplybtn;
+}
+.dividebtn{
+    grid-area:dividebtn ;
+}
+.del{
+    grid-area:del;
+}
+.reset{
+    grid-area:reset;
+    width: 100%;
+}
+.equals{
+    grid-area:equals;
+    width: 100%;
+}
+
