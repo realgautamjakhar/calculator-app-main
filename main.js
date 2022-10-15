@@ -82,19 +82,88 @@ function cleardigit(){
 function showresult(){
 
     oprandtwo = parseInt(displaytext.innerHTML)
+    let result = null
     if(operator == "+"){
-        let result = oprandone + oprandtwo;
+         result = oprandone + oprandtwo;
         displaytext.innerHTML = result;
         console.log((result));
     }else if(operator === "-"){
-        let result = oprandone - oprandtwo;
+         result = oprandone - oprandtwo;
         displaytext.innerHTML = result;
     }else if(operator === "*"){
-        let result = oprandone * oprandtwo;
+         result = oprandone * oprandtwo;
         displaytext.innerHTML = result;
     }else if(operator === "/"){
-        let result = oprandone / oprandtwo;
+         result = oprandone / oprandtwo;
         result = result.toFixed(2)
         displaytext.innerHTML = result;
+    }
+    oprandone = result
+    oprandtwo = null
+    operator = null
+    console.log(oprandone);
+    console.log(oprandtwo);
+    console.log(operator);
+}
+
+const element = document.querySelector(".element")
+let count = 1
+console.log(element.dataset.value)
+
+
+element.addEventListener("click",translate)
+
+
+function translate(){
+    console.log(count)
+    if(count<3){
+        element.style.transform += "translate(20px)";
+        element.dataset.value = parseInt(element.dataset.value)+1
+        const newvalue = parseInt(element.dataset.value)
+        theme(newvalue)
+        console.log(element.dataset.value)
+    }else{
+        element.style.transform = "translate(0px)";
+        count = 0
+        element.dataset.value = 1        
+        console.log(` reset ${element.dataset.value}`)
+        const newvalue = parseInt(element.dataset.value)
+        theme(newvalue)
+    }
+    count++
+}
+
+const r = document.querySelector(":root")
+
+function theme(value){
+    if(value === 1){
+        r.style.setProperty("--box-shadow","5px 5px 10px #e6e6e6,-5px -5px 10px #ffffff")
+        r.style.setProperty("--box-bg","#ffffff")
+        r.style.setProperty("--text-color","black")
+        r.style.setProperty("--btn-bg","#ffffff")
+        r.style.setProperty("--accent-bg","#EE4266")
+        r.style.setProperty("--equals-bg","#0EAD69")
+        r.style.setProperty("--hover-color","#3BCEAC")
+        r.style.setProperty("--btn-text-color","black")
+    }
+    if(value === 2){
+        r.style.setProperty("--box-shadow","5px 5px 10px #7db2e4,-5px -5px 10px #99daff")
+        r.style.setProperty("--box-bg","#8bc6fd")
+        r.style.setProperty("--text-color","white")
+        r.style.setProperty("--btn-bg","#8bc6fd")
+        r.style.setProperty("--accent-bg","#EF476F")
+        r.style.setProperty("--equals-bg","#06D6A0")
+        r.style.setProperty("--hover-color","#FFD166")
+        r.style.setProperty("--btn-text-color","black")
+    }
+    if(value === 3){
+        r.style.setProperty("--box-shadow","5px 5px 10px #363b41,-5px -5px 10px #42494f")
+        r.style.setProperty("--box-bg","#3c4248")
+        r.style.setProperty("--text-color","white")
+        r.style.setProperty("--btn-bg","#3c4248")
+        r.style.setProperty("--accent-bg","#EE4266")
+        r.style.setProperty("--equals-bg","#0EAD69")
+        r.style.setProperty("--hover-color","#577399")
+        r.style.setProperty("--btn-text-color","white")
     }
 }
