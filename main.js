@@ -14,6 +14,9 @@ const resetbtn = document.querySelector(".reset")
 const equalsbtn = document.querySelector(".equals")
 const addbtn = document.querySelector(".addbtn")
 const subtractbtn = document.querySelector(".subtractbtn")
+const multiplybtn = document.querySelector(".multiplybtn")
+const dividebtn = document.querySelector(".dividebtn")
+const delbtn = document.querySelector(".del")
 let oprandone = null;
 let oprandtwo = null;
 let operator = null;
@@ -28,11 +31,14 @@ eightbtn.addEventListener("click",displayNumber)
 ninebtn.addEventListener("click",displayNumber)
 zerobtn.addEventListener("click",displayNumber)
 decimalbtn.addEventListener("click",displayNumber)
-
+decimalbtn.addEventListener("click",displayNumber)
 resetbtn.addEventListener("click",clearDisplay)
 equalsbtn.addEventListener("click",showresult)
-addbtn.addEventListener("click",addinput)
-subtractbtn.addEventListener("click",subtractinput)
+delbtn.addEventListener("click",cleardigit)
+addbtn.addEventListener("click",operate)
+subtractbtn.addEventListener("click",operate)
+multiplybtn.addEventListener("click",operate)
+dividebtn.addEventListener("click",operate)
 
 function clearDisplay(){
     document.querySelector(".reference").innerHTML = ""
@@ -53,43 +59,41 @@ function displayNumber(event){
     }
 }
 
-function addinput(){
-
-    if (operator === null) {
+function operate(){
+    oprandone = parseFloat(displaytext.innerHTML)
+    if (operator === null && oprandone) {
         displaytext.innerHTML += event.target.value;
         operator = event.target.value;
         document.querySelector(".reference").innerHTML += event.target.value
         oprandone = parseFloat(displaytext.innerHTML)
         displaytext.innerHTML = "";
-        console.log(oprandone)
     }else{
         alert("only one operator")
     }
 }
-function subtractinput(){
-    if (operator === null) {
-        displaytext.innerHTML += event.target.value;
-        operator = event.target.value;
-        oprandone = parseInt(displaytext.innerHTML)
-        console.log(oprandone)
-    }else{
-        alert("only one operator")
+
+function cleardigit(){
+    console.log("hefkjash");
+    if(displaytext.innerHTML){
+        displaytext.innerHTML = (displaytext.innerHTML).slice(0,-1)
     }
 }
+
 function showresult(){
 
     oprandtwo = parseInt(displaytext.innerHTML)
     if(operator == "+"){
-        let resultaa = oprandone + oprandtwo;
-        console.log(oprandone,oprandtwo);
-        // displaytext.innerHTML = "";
-        displaytext.innerHTML = resultaa;
-        console.log((resultaa));
+        let result = oprandone + oprandtwo;
+        displaytext.innerHTML = result;
+        console.log((result));
+    }else if(operator === "-"){
+        let result = oprandone - oprandtwo;
+        displaytext.innerHTML = result;
+    }else if(operator === "*"){
+        let result = oprandone * oprandtwo;
+        displaytext.innerHTML = result;
+    }else if(operator === "/"){
+        let result = oprandone / oprandtwo;
+        displaytext.innerHTML = result;
     }
-
-
 }
-document.addEventListener("DOMContentLoaded",function(){
-
-
-})

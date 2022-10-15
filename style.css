@@ -21,7 +21,24 @@ body{
     align-items: center;
     flex-wrap: wrap;
 }
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+.switch input:checked {
+    transform: translateX(20px);
+}
 
+.theme{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}.theme h1{
+    margin: 0;
+}
 .display{
     display: flex;
     flex-direction: column;
@@ -67,10 +84,10 @@ body{
 
 }
 
-button{
+button {
     font-family: 'League Spartan', sans-serif;
     border-radius: 16px;
-    background: linear-gradient(145deg, #cacaca, #f0f0f0);
+    background-color: linear-gradient(145deg, #cacaca, #f0f0f0);
     box-shadow:  5px 5px 10px #d5d5d5,
                  -5px -5px 10px #ebebeb;
     
@@ -129,10 +146,22 @@ button:hover{
 }
 .reset{
     grid-area:reset;
-    width: 100%;
+    border-radius: 26px;
+    background: linear-gradient(145deg, #ff9494, #e67c7c);
+}
+.reset:hover{
+    background: linear-gradient(145deg, #ff9494, #e67c7c);
+    box-shadow:  7px 7px 14px #fc8989,
+                 -7px -7px 14px #ff8b8b;
 }
 .equals{
     grid-area:equals;
-    width: 100%;
+    border-radius: 26px;
+    background: linear-gradient(145deg, #9de6ac, #84c291);
+}
+.equals:hover{
+    background: linear-gradient(145deg, #9de6ac, #84c291);
+    box-shadow:  7px 7px 14px #92d59f,
+                 -7px -7px 14px #94d9a3;
 }
 
