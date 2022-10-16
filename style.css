@@ -74,14 +74,14 @@ body{
 }
 .buttons{
     display: grid;
-
+    grid-template-columns: repeat(4,minmax(auto,60px));
     grid-template-areas: "seven eight nine del"
                          "four five six addbtn"
                          "one two three subtractbtn"
                          "decimal zero dividebtn multiplybtn"
                          "reset reset equals equals";
     gap: 1rem;
-    grid-template-columns: repeat(4,minmax(auto,60px));
+
     justify-items: center;
     background-color: black;
     padding: 1rem;

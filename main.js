@@ -43,7 +43,6 @@ dividebtn.addEventListener("click",operate)
 function clearDisplay(){
     document.querySelector(".reference").innerHTML = ""
     displaytext.innerHTML = "";
-
     oprandone = null;
     oprandtwo = null;
     operator = null;
@@ -73,9 +72,9 @@ function operate(){
 }
 
 function cleardigit(){
-    console.log("hefkjash");
     if(displaytext.innerHTML){
         displaytext.innerHTML = (displaytext.innerHTML).slice(0,-1)
+        document.querySelector(".reference").innerHTML = (displaytext.innerHTML).slice(0,-1)
     }
 }
 
@@ -86,7 +85,7 @@ function showresult(){
     if(operator == "+"){
          result = oprandone + oprandtwo;
         displaytext.innerHTML = result;
-        console.log((result));
+        document.querySelector(".reference").innerHTML += "=";
     }else if(operator === "-"){
          result = oprandone - oprandtwo;
         displaytext.innerHTML = result;
@@ -101,32 +100,25 @@ function showresult(){
     oprandone = result
     oprandtwo = null
     operator = null
-    console.log(oprandone);
-    console.log(oprandtwo);
-    console.log(operator);
 }
 
 const element = document.querySelector(".element")
 let count = 1
-console.log(element.dataset.value)
-
 
 element.addEventListener("click",translate)
 
 
 function translate(){
-    console.log(count)
+
     if(count<3){
         element.style.transform += "translate(20px)";
         element.dataset.value = parseInt(element.dataset.value)+1
         const newvalue = parseInt(element.dataset.value)
         theme(newvalue)
-        console.log(element.dataset.value)
     }else{
         element.style.transform = "translate(0px)";
         count = 0
         element.dataset.value = 1        
-        console.log(` reset ${element.dataset.value}`)
         const newvalue = parseInt(element.dataset.value)
         theme(newvalue)
     }
